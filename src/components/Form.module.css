@@ -1,0 +1,51 @@
+.formTask {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: calc(0rem - 1.6875rem);
+}
+
+.formTask > input {
+  width: 39.875rem;
+  height: 3.375rem;
+  padding: 1rem;
+  border-radius: 8px;
+
+  background-color: var(--gray-500);
+  color: var(--gray-300);
+  border: 1px solid var(--gray-700);
+  outline: none;
+}
+
+.formTask > input:focus {
+  border-color: var(--purple-dark);
+}
+
+.formTask > button[type="submit"] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+
+  width: 5.625rem;
+  height: 3.25rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 1rem;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+
+  background-color: var(--blue-dark);
+  color: var(--gray-100);
+  transition: all ease-out 0.1s;
+}
+
+.formTask > button[type="submit"]:hover {
+  background-color: var(--blue);
+}
+
+.formTask > button[type="submit"] > svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
