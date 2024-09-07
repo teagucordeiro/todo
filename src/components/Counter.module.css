@@ -1,0 +1,29 @@
+.counterContainer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+  font-weight: bold;
+}
+
+.createdTasks {
+  color: var(--blue);
+  display: flex;
+  align-items: center;
+}
+
+.finishedTasks {
+  color: var(--purple);
+  display: flex;
+  align-items: center;
+}
+
+.counter {
+  background-color: var(--gray-400);
+  color: var(--gray-200);
+
+  padding: 0.125rem 0.5rem;
+  border-radius: 99%;
+  margin-left: 0.5rem;
+
+  font-size: 0.75rem;
+}
