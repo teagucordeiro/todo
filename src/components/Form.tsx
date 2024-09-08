@@ -2,12 +2,16 @@ import { PlusCircle } from "@phosphor-icons/react";
 import styles from "./Form.module.css";
 import { ChangeEvent, FormEvent, useState } from "react";
 
-export function Form() {
+interface FormProps {
+  onAddNewTask: (content: string) => void;
+}
+
+export function Form({ onAddNewTask }: FormProps) {
   const [newTaskText, setNewTaskText] = useState("");
 
   function handleAddNewTask(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log(newTaskText);
+    onAddNewTask(newTaskText);
     setNewTaskText("");
   }
 

@@ -16,7 +16,15 @@ export function Counter({
         <span className={styles.counter}>{createdTasksNumber}</span>
       </p>
       <p className={styles.finishedTasks}>
-        Tarefas concluídas <span className={styles.counter}>{finishedTasksNumber}</span>
+        Tarefas concluídas{" "}
+        {finishedTasksNumber === 0 ? (
+          <span className={styles.counter}>{finishedTasksNumber}</span>
+        ) : (
+          <span className={styles.counterWithTwoValues}>
+            {" "}
+            {`${finishedTasksNumber} de ${createdTasksNumber}`}
+          </span>
+        )}
       </p>
     </div>
   );
