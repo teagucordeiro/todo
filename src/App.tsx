@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import styles from "./App.module.css";
 import { Counter } from "./components/Counter";
@@ -16,7 +16,10 @@ export interface task {
 }
 
 export function App() {
-  const [tasks, setTasks] = useState<task[]>([]);
+  const [tasks, setTasks] = useState<task[]>(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    return savedTasks ? JSON.parse(savedTasks) : [];
+  });
 
   const finishedTasks = tasks.reduce(function (accumulator, task) {
     if (task.checked === true) {
@@ -50,12 +53,19 @@ export function App() {
     setTasks(tasksWithUptadedOne);
   }
 
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+  }, [tasks]);
+
   return (
     <div>
       <Header />
       <Form onAddNewTask={addTask} />
       <div className={styles.wrapper}>
-        <Counter createdTasksNumber={tasks.length} finishedTasksNumber={finishedTasks} />
+        <Counter
+          createdTasksNumber={tasks.length}
+          finishedTasksNumber={finishedTasks}
+        />
         {tasks.length === 0 ? (
           <EmptyState />
         ) : (
